@@ -10,14 +10,14 @@ phases:
     runtime-versions:
       python: 3.11
   pre_build:
-    commands:
+    commands: 
       - echo "Installing dependencies..."
       - pip install -r requirements.txt
   build:
     commands:
       - echo "Building Docker image..."
       - echo "$DOCKER_REGISTRY_PASSWORD" | docker login -u "$DOCKER_REGISTRY_USERNAME" --password-stdin "$DOCKER_REGISTRY_URL"
-      - docker build -t "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/simple-python-flask-app:latest" .
+      - docker build -t "docker.io/sushildhore26@gmail.com/simple-python-flask-app:latest" .
       - docker push "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/simple-python-flask-app:latest"
   post_build:
     commands:
