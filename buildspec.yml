@@ -19,7 +19,7 @@ phases:
       - echo "$DOCKER_REGISTRY_PASSWORD" | docker login -u "$DOCKER_REGISTRY_USERNAME" --password-stdin "$DOCKER_REGISTRY_URL"
 #      - docker build -t "docker.io/sushildhore26@gmail.com/simple-python-flask-app:latest" .
       - docker build -t docker.io/sushil26/simple-python-flask-app:latest .
-      - docker push "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/simple-python-flask-app:latest"
+      - docker push docker.io/sushil26/simple-python-flask-app:latest
   post_build:
     commands:
       - echo "Build completed successfully!"
